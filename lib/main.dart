@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/app_lifecycle.dart';
 import 'package:my_app/camera_app.dart';
 import 'package:my_app/generic_learn.dart';
+import 'package:my_app/image_user_study.dart';
 import 'package:my_app/stateful_group_page.dart';
 import 'package:my_app/widget_lifecycle.dart';
 
@@ -50,7 +51,8 @@ class _State extends State<MyApp> {
         'openapp': (BuildContext context) => OpenOtherAppPage(),
         'widgetlifecycle': (BuildContext context) => WidgetLifecycle(),
         'applifecycle': (BuildContext context) => AppLifecycle(),
-        'cameraapp': (BuildContext context) => CameraApp()
+        'cameraapp': (BuildContext context) => CameraApp(),
+        'imageuse': (BuildContext context) => ImageUseStudy(),
       },
       home: HomePage(),
     );
@@ -112,7 +114,8 @@ class _StateHomePage extends State<HomePage> {
                 _item("打开其他APP", OpenOtherAppPage(), 'openapp'),
                 _item('flutter页面的生命周期', WidgetLifecycle(), 'widgetlifecycle'),
                 _item('app的生命周期', AppLifecycle(), 'applifecycle'),
-                _item('拍照app', CameraApp(), 'cameraapp')
+                _item('拍照app', CameraApp(), 'cameraapp'),
+                _item('图片使用', ImageUseStudy(), 'imageuse'),
               ],
             ),
           ),
