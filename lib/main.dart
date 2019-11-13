@@ -1,5 +1,10 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/animation_hard.dart';
+import 'package:my_app/animation_hexo.dart';
+import 'package:my_app/animation_study.dart';
+import 'package:my_app/animation_study_2.dart';
+import 'package:my_app/animation_study_3.dart';
 import 'package:my_app/app_lifecycle.dart';
 import 'package:my_app/camera_app.dart';
 import 'package:my_app/generic_learn.dart';
@@ -53,6 +58,11 @@ class _State extends State<MyApp> {
         'applifecycle': (BuildContext context) => AppLifecycle(),
         'cameraapp': (BuildContext context) => CameraApp(),
         'imageuse': (BuildContext context) => ImageUseStudy(),
+        'animationstudy': (BuildContext context) => AnimationStudy(),
+        'animationstudy2': (BuildContext context) => AnimationStudy2(),
+        'animationstudy3': (BuildContext context) => AnimationStudy3(),
+        'animationhexo': (BuildContext context) => AnimationHexo(),
+        'animationfinal': (BuildContext context) => RadialExpansionDemo(),
       },
       home: HomePage(),
     );
@@ -87,7 +97,8 @@ class _StateHomePage extends State<HomePage> {
           // the App.build method, and use it to set our appbar title.
           title: Text('Flutter Demo'),
         ),
-        body: Center(
+        body: SingleChildScrollView(
+            child: Center(
           child: Container(
             child: Column(
               children: <Widget>[
@@ -116,6 +127,11 @@ class _StateHomePage extends State<HomePage> {
                 _item('app的生命周期', AppLifecycle(), 'applifecycle'),
                 _item('拍照app', CameraApp(), 'cameraapp'),
                 _item('图片使用', ImageUseStudy(), 'imageuse'),
+                _item('动画学习', AnimationStudy(), 'animationstudy'),
+                _item('动画学习2', AnimationStudy2(), 'animationstudy2'),
+                _item('动画学习3', AnimationStudy3(), 'animationstudy3'),
+                _item('Hexo动画', AnimationHexo(), 'animationhexo'),
+                _item('高级动画', RadialExpansionDemo(), 'animationfinal'),
               ],
             ),
           ),
@@ -161,7 +177,7 @@ class _StateHomePage extends State<HomePage> {
 //            ),
 //          ],
 //        ),
-        ));
+        )));
   }
 
   _item(String title, page, String routeName) {
@@ -172,7 +188,8 @@ class _StateHomePage extends State<HomePage> {
           if (isByName) {
             Navigator.pushNamed(context, routeName);
           } else {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => page));
           }
         },
         child: Text(title),
